@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>
+        Youtube clone.com
+       </title>
+       <style>
+          
+         
+         .img{
+            width: 100%;
+            display: block;
+
+
+         }
+         .textbox{
+            border-radius:0px;
+            border-color: gray;
+            display: block;
+            height: 32px;
+            width: 0px;
+             flex: 1;
+             font-size: medium;
+           /**? font-size: 20px;
+            margin-left: 12px;/**/
+         }
+       /**?  .videos-class{
+             width: 300px;
+ 
+         }/**/
+         .videos-class{
+            margin-top: 0%;
+            margin-bottom: 2px;
+            font-weight: bold;
+            line-height: 20px;
+         }
+         .video-author,
+          .video-stats{
+            font-size: 14px;
+            color: gray;
+            margin-top: 0px;
+            margin-bottom: 0px;
+              /**?display: inline-block;
+             display: block;/**/
+         }
+       /**?  .video-preview{
+            width: 300px;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 15px;
+             
+         }/**/
+         .channel-pic{
+            display: inline-block;
+            width: 50px;
+            vertical-align: top;
+            border-radius: 40px;
+
+         }
+         .channel-info{
+            display: inline-block;
+            width: 200px;
+          }
+         .profile-pic{
+            width: 40px;
+            border-radius: 40px;
+            
+         }
+         .img-gap{
+            margin-bottom: 12px;
+            position: relative;
+          }
+         .p{
+            font-family: Arial, Helvetica, sans-serif;
+             
+         }
+         .video-info-grid{
+            display: grid;
+            grid-template-columns: 50px,1fr;
+         }
+         .video-grid{
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              column-gap: 15px;
+              row-gap: 40px;
+         }
+         @media (max-width: 750px){
+            .video-grid{
+               grid-template-columns: 1fr 1fr;
+            }
+         }
+         @media (min-width:751) and (max-width:999px){
+            .video-grid{
+               grid-template-columns: 1fr 1fr 1fr;
+            }
+         }
+        /* @media (min-width: 1000px){
+            .video-grid{
+               grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+         }*/
+         body{
+            margin: 0;
+            background-color: white;
+         } 
+         .header{
+            height: 58px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: white;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            
+             
+         
+         }
+         .left-section{
+          /**? width: 150px; /**/
+           display: flex;
+           align-items: center;
+          }
+         .middle-section{
+            flex: 1;
+            margin-left: 70px;
+            margin-right: 30px;
+            max-width:500px;
+            display: flex;
+            align-items: center;
+
+
+         }
+         .right-section{
+            width: 200px;
+         }
+         .img12{
+            height: 30px;
+            margin-left:20px;
+            margin-right: 20px;
+         }
+         .img13{
+            height: 40px;
+            width: 70px;
+         }
+         .img14{
+            height: 29px;
+              
+         }
+         .img16{
+            height: 31px;
+            background-color: white;
+            border-radius: 15px;
+
+         }
+         .textbox::placeholder{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+         }
+         .img-class-14{
+             margin-right: 25px;
+             border-color: gray;
+             border-style: solid;
+             background-color: rgb(250, 245, 245);
+             position: relative;
+          }
+         .img-class-16{
+             width: 40px;
+             border-radius: 20px;
+             background-color:rgb(250, 245, 245);
+             margin-left: -3px;
+             border-color: gray;
+             position: relative;
+              
+         }
+          
+            .img19{
+            height: 29px;
+            width: 20px;
+            background-color: white;
+            border-radius: 12px;
+
+         }
+         
+         .img21{
+            height: 40px;
+
+         }
+         .notification-icon{
+           position: relative;
+         }
+         .notification-count{
+           position: absolute;
+           top:0;
+           right: 0;
+           background-color: red;
+           color: white;
+           font-size: medium;
+           font-family: Arial, Helvetica, sans-serif;
+           padding-left: 6px;
+           padding-top: 2px;
+           padding-bottom: 2px;
+           padding-right: 6px;
+           border-radius: 10px;
+           
+         }
+         .img20{
+            height: 40px;
+            margin-right: 2px;
+         }
+         .right-section{
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 24px;
+
+         }
+         .video-time{
+             position: absolute;
+             color: white;
+             bottom: 10px;
+             right: 4px;
+             font-size: medium;
+             padding-left: 4px;
+             padding-right: 4px;
+             padding-top: 4px;
+             padding-bottom: 4px;
+             background-color: black;
+             border-radius: 10px;
+         }
+          .sidebar-link{
+            background-color:white;
+            height: 110px;
+            margin-bottom: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+          }
+          .sidebar-link:hover{
+              background-color: gray;
+          }
+          .sidebar-link img{
+            height: 30px;
+            margin-bottom: 4px;
+             
+          }
+          .sidebar-link div{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: small;
+
+          }
+          .img-class-14 .tooltip{
+            position: absolute;
+            background-color: gray;
+            color: white;
+            padding-left: 4px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-right: 4px;
+            border-radius: 4px;
+            font-size: small;
+            bottom: -20;
+            left: 0;
+            opacity: 0;
+            
+          }
+          .img-class-14:hover .tooltip{
+            opacity: 1;
+          }
+          .img-class-16 .tooltip{
+            position: absolute;
+            background-color: gray;
+            color: white;
+            padding-left: 4px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-right: 4px;
+            border-radius: 4px;
+            font-size: small;
+            bottom: -20;
+            left: 0;
+            opacity: 0;
+            width: 200px;
+            
+          }
+          .img-class-16:hover .tooltip{
+            opacity: 1;
+          }
+          .img-class-19{
+             width: 40px;
+             border-radius: 20px;
+             background-color:rgb(250, 245, 245);
+             margin-left: -3px;
+             border-color: gray;
+             position: relative;
+              
+         }
+         .img-class-19 .tooltip{
+            position: absolute;
+            background-color: gray;
+            color: white;
+            padding-left: 8px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-right: 8px;
+            border-radius: 10px;
+            font-size: small;
+            bottom: -20;
+            left: 0;
+            opacity: 0;
+            
+          }
+          .img-class-19:hover .tooltip{
+            opacity: 1;
+             
+          }
+          .img-class-14:hover{
+            cursor: pointer;
+          }
+          .img-class-19:hover{
+            cursor: pointer;
+          }
+          .img-class-16:hover{
+            cursor: pointer;
+          }
+          .img20:hover{
+            cursor: pointer;
+          }
+          .img21:hover{
+            cursor: pointer;
+          }
+          .img12:hover{
+            cursor: pointer;
+          }
+          .img13:hover{
+            cursor: pointer;
+          }
+       </style>
+       <link rel="stylesheet" href="css/header.css">
+    </head>
+    <body style="height:1000px;
+          padding-top: 80px;
+          padding-left: 96px;
+          padding-right: 24px;
+          background-color: white;
+    ">
+     <div style="
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 50px;
+     background-color: white;
+     border-bottom-width: 1px;
+     border-bottom-style: solid;
+     border-bottom-color: grey;
+     z-index: 100;
+      
+;">
+   <div class="header">
+      <div class="left-section">
+         <img class="img12" src="img12.jpeg">
+         <img class="img13" src="img13.jpeg">
+      </div>
+      <div class="middle-section">
+         <input class="textbox" type="text" placeholder="Search">
+         
+         <button class="img-class-14"><img class="img14" src="img14.jpeg">
+         <div class="tooltip">Search</div>
+        </button> 
+         
+         <button class="img-class-16"><img class="img16" src="img16.jpeg">
+            <div class="tooltip">Search with your voice </div> 
+         </button>
+
+      </div>
+      <div class="right-section">
+
+          <button class="img-class-19" > <img class="img19 "src="img19.jpeg">
+            <div class="tooltip">Creat</div>
+         </button>
+
+          <div class="notification-icon">
+            <img class="img21" src="img21.jpeg">
+            <div class="notification-count">3</div>
+         </div>
+           
+          <img class="img20" src="img20.jpeg">
+      </div>
+   </div>
+    </div>
+    <div class="sidebar" style="
+           position: fixed;
+           left:0;
+           bottom:0;
+           top: 55px;
+           background-color: white;
+           width: 72px;
+           z-index: 200;
+           padding-top: 5px;
+
+    ">
+         <div class="sidebar-link">
+            <img src="img22.jpeg">
+            <div>Home</div>
+         </div>
+         <div class="sidebar-link">
+            <img src="img23.jpeg">
+            <div>Explore</div>
+         </div>
+         <div class="sidebar-link">
+            <img src="img24.jpeg">
+            <div>Subscripition</div>
+         </div>
+         <div class="sidebar-link">
+            <img src="img25.jpeg">
+            <div>Originals</div>
+         </div>
+         <div class="sidebar-link">
+            <img src="img26.jpeg">
+            <div> Music</div>
+         </div>
+         <div class="sidebar-link">
+            <img src="img29.jpeg">
+            <div>
+               Library
+            </div>
+         </div>
+
+    </div>
+
+       
+       <div class="video-grid"> 
+      <div class="video-preview"> 
+         <div class="img-gap">
+           <a href="https://www.youtube.com/watch?v=pyoB6gHHCPE"><img class="img" src="img.jpeg"></a>   
+            <div class="video-time">14:56</div>
+         </div>
+         <div class="videos-info-grid">
+            <div class="channel-pic">
+               <img  class="profile-pic" src="img2.jpeg">
+                
+
+            </div>
+            <div class="channel-info">
+               <p class="videos-class">
+                  Talikng Tech and AI with Google CEO Sundar Pichail
+                </p>
+                <p class="video-author">
+                  Marques Brownlee
+                </p>
+                <p class="video-stats">
+                  3.4M views &#183; 6 months ago
+                </p>
+            </div>
+             
+             
+         </div>
+        
+      </div>
+       
+      <div class="video-preview"> 
+         <div class="img-gap">
+           <a href="https://www.youtube.com/watch?v=4iNMyilmDfg"> <img class="img" src="img1.jpeg"></a> 
+            <div class="video-time">24:15</div>
+         </div>
+         <div class="videos-info-grid">
+            <div class="channel-pic">
+               <img class="profile-pic"src="img3.jpeg">
+               
+
+            </div>
+            <div class="channel-info">
+               <p class="videos-class">
+                  Talikng Tech and AI with Google CEO Sundar Pichail
+                </p>
+                <p class="video-author">
+                  Marques Brownlee
+                </p>
+                <p class="video-stats">
+                  3.4M views &#183; 6 months ago
+                </p>
+            </div>
+             
+             
+         </div>
+        
+      </div>
+      <div class="video-preview"> 
+         <div class="img-gap">
+           <a href="https://www.youtube.com/watch?v=W7x_U3lP760"><img class="img" src="img4.jpeg"></a>   
+            <div class="video-time">11:33</div>
+         </div>
+         <div class="videos-info-grid">
+            <div class="channel-pic">
+               <img  class="profile-pic" src="img5,jpeg.jpg">
+
+                
+
+            </div>
+            <div class="channel-info">
+               <p class="videos-class">
+                  Tom & amp; Jerry in italiano | I momenti più divertenti di Jerry!  🐭 | WB Kids 
+                </p>
+                <p class="video-author">
+                   WB kids
+                </p>
+                <p class="video-stats">
+                  83M views &#183;  3 Years ago
+                </p>
+            </div>
+             
+             
+         </div>
+        
+      </div>
+      <div class="video-preview"> 
+         <div class="img-gap">
+            <a href="https://www.youtube.com/watch?v=fPfy3PD_Amk">  <img class="img" src="img6.jpeg"></a> 
+            <div class="video-time">54:20</div>
+         </div>
+         <div class="videos-info-grid">
+            <div class="channel-pic">
+               <img  class="profile-pic" src="img7.jpeg">
+
+
+            </div>
+            <div class="channel-info">
+               <p class="videos-class">
+                  Highlights - England v Australia | 2nd Men’s Metro Bank ODI 2024 
+                </p>
+                <p class="video-author">
+                   Wales Cricket Board
+                </p>
+                <p class="video-stats">
+                  957k views &#183; 14 hours ago
+                </p>
+            </div>
+             
+             
+         </div>
+        
+      </div>
+
+      <div class="video-preview"> 
+         <div class="img-gap">
+            <a href="https://www.youtube.com/watch?v=aLQGkXD3HG8"><img class="img" src="img8.jpeg"><div class="video-time">20:63</div></a>  
+         </div>
+         <div class="videos-info-grid">
+            <div class="channel-pic">
+               <img  class="profile-pic" src="img9.jpeg">
+
+
+            </div>
+            <div class="channel-info">
+               <p class="videos-class">
+                  Best 8k HDR 120FPS Dolby Vision
+                 </p>
+                <p class="video-author">
+                  8k world
+                 </p>
+                <p class="video-stats">
+                  340 views &#183; 20 hours ago
+                </p>
+            </div>
+             
+             
+         </div>
+        
+      </div>
+
+      <div class="video-preview"> 
+         <div class="img-gap">
+          <a href="https://www.youtube.com/watch?v=va3LmAeulRo" ><img class="img" src="img10.jpeg"></a>  
+            <div class="video-time">19:36</div>
+         </div>
+         <div class="videos-info-grid">
+            <div class="channel-pic">
+               <img  class="profile-pic" src="img11.jpeg">
+
+
+            </div>
+            <div class="channel-info">
+               <p class="videos-class">
+                  iPhone 16 series Unboxing
+                 </p>
+                <p class="video-author">
+                  Prasadtechintelugu
+                </p>
+                <p class="video-stats">
+                  343k views &#183; 6 months ago
+                </p>
+            </div>
+             
+             
+         </div>
+        
+      </div>
+   </div>
+   </body>
+</html> 
